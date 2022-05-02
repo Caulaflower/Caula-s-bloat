@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="BaseMechanoid">
+        <defName>CE_Mech_bor</defName>
+        <label>bor</label>
+        <description>Small and nimble early generation mechanoid. It is unknown when it was created but it is known that it once was a transport bot, but now it's adapted for reconnaissance work, but they still are sometimes found with random equipment which wasn't removed before the upgrades. \n \n Combat Characteristics: \n -Has high performing armor, but with very low armor durability \n As an early generation mechanoid, uses ballistic and not charged weapons. \n Reported to use thermobaric rounds when it detects heavy weapons.</description>
+        <statBases>
+          <MoveSpeed>5.6</MoveSpeed>
+          <ArmorRating_Blunt>100</ArmorRating_Blunt>
+          <ArmorRating_Sharp>40</ArmorRating_Sharp>
+          <PsychicSensitivity>0</PsychicSensitivity>
+          <PartialArmorBody>0</PartialArmorBody>
+          <CarryWeight>300</CarryWeight>
+          <CarryBulk>150</CarryBulk>
+          <AimingAccuracy>2.5</AimingAccuracy>
+          <ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
+          <MeleeDodgeChance>0</MeleeDodgeChance>
+          <MeleeCritChance>0.0</MeleeCritChance>
+          <MeleeParryChance>0.0</MeleeParryChance>
+          <AimingDelayFactor>0.5</AimingDelayFactor>
+          <MaxHitPoints>100</MaxHitPoints>
+          <Suppressability>0.01</Suppressability>
+        </statBases>
+        <tools>
+            <li Class="CombatExtended.ToolCE">
+                <label>turret</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>15</power>
+                <cooldownTime>1.65</cooldownTime>
+                <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+                <armorPenetrationSharp>0</armorPenetrationSharp>
+                <armorPenetrationBlunt>5</armorPenetrationBlunt>
+                <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+            </li>
+        </tools>
+        <race>
+          <intelligence>ToolUser</intelligence>
+          <thinkTreeMain>Mechanoid</thinkTreeMain>
+          <body>CE_Mech_borBox</body>
+          <baseBodySize>0.75</baseBodySize>
+          <baseHealthScale>1</baseHealthScale>
+          <lifeStageAges>
+            <li>
+              <def>MechanoidFullyFormed</def>
+              <minAge>0</minAge>
+              <soundWounded>Pawn_Mech_Centipede_Wounded</soundWounded>
+              <soundDeath>Pawn_Mech_Centipede_Death</soundDeath>
+              <soundCall>Pawn_Mech_Centipede_Call</soundCall>
+            </li>
+          </lifeStageAges>
+          <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
+          <soundMeleeHitPawn>Pawn_Melee_MechanoidBash_HitPawn</soundMeleeHitPawn>
+          <soundMeleeHitBuilding>Pawn_Melee_MechanoidBash_HitBuilding</soundMeleeHitBuilding>
+          <soundMeleeMiss>Pawn_Melee_MechanoidBash_Miss</soundMeleeMiss>
+        </race>
+        <butcherProducts>
+        </butcherProducts>
+        <modExtensions>
+            <li Class="CombatExtended.RacePropertiesExtensionCE">
+                    <bodyShape>QuadrupedLow</bodyShape>
+            </li>
+            <li Class="CombatExtended.MechArmorDurabilityExt">
+                <Durability>200</Durability>
+            </li>
+            <li Class="CombatExtended.ProjectileChangeExt">
+              <additionalEquipment>
+                  <li>
+                      <projectile>Bullet_80x256mmFuel_Thermobaric</projectile>
+                      <chanceToUse>1</chanceToUse>
+                      <burstCount>1</burstCount>
+                      <uses>2</uses>
+                  </li>
+              </additionalEquipment>
+          </li>
+        </modExtensions>
+        <comps>
+            <li>
+                <compClass>CombatExtended.CompMechArmorDurability</compClass>
+            </li>
+            <li>
+              <compClass>CEMechs.CompLoot</compClass>
+            </li>
+            <li Class="CombatExtended.CompProperties_Suppressable"/>
+            <li Class="CEMechs.PropsSmoker">
+              <compClass>CEMechs.CEMech_SmokePopper</compClass>
+              <smokeRadius>12</smokeRadius>
+              <switchGun>true</switchGun>
+              <targettingTag>GunHeavy</targettingTag>
+            </li>
+        </comps>
+      </ThingDef>
+
+
+    <ThingDef ParentName="BaseGunWithQuality">
+        <defName>bor_lmg</defName>
+        <label>bor machine gun</label>
+        <graphicData>
+          <texPath>Things/Building/Turrets/M240_Top</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <description>7.62x39 machine gun used by bor mechs.</description>
+        <statBases>
+          <MarketValue>2000</MarketValue>
+          <SightsEfficiency>1</SightsEfficiency>
+          <ShotSpread>0.02</ShotSpread>
+          <SwayFactor>0.90</SwayFactor>
+          <RangedWeapon_Cooldown>0.38</RangedWeapon_Cooldown>
+          <Mass>6</Mass>
+        </statBases>
+        <verbs>
+          <li Class="CombatExtended.VerbPropertiesCE">
+            <recoilAmount>1.00</recoilAmount>
+            <verbClass>CEMechs.SmartShooterVerb</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>Bullet_762x51mmNATO_FMJ</defaultProjectile>
+            <warmupTime>1</warmupTime>
+            <range>30</range>
+            <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+            <burstShotCount>12</burstShotCount>
+            <soundCast>MediumMG</soundCast>
+            <soundCastTail>GunTail_Medium</soundCastTail>
+            <muzzleFlashScale>10</muzzleFlashScale>
+            <recoilPattern>Mounted</recoilPattern>
+          </li>
+        </verbs>
+        <comps>
+          <li Class="CombatExtended.CompProperties_AmmoUser">
+            <magazineSize>50</magazineSize>
+            <reloadTime>2.8</reloadTime>
+            <ammoSet>AmmoSet_762x39mmSoviet</ammoSet>
+          </li>
+          <li Class="CombatExtended.CompProperties_FireModes">
+            <aimedBurstShotCount>10</aimedBurstShotCount>
+            <aiAimMode>SuppressFire</aiAimMode>
+          </li>
+        </comps>
+        <weaponTags>
+            <li>Mechbor</li>
+        </weaponTags>
+    </ThingDef>
+
+    <PawnKindDef ParentName="BaseMechCentipede">
+        <defName>Mech_Bor</defName>
+        <label>bor</label>
+        <combatPower>580</combatPower>
+        <weaponMoney>9999~9999</weaponMoney>
+        <weaponTags>
+          <li>Mechbor</li>
+        </weaponTags>
+        <race>CE_Mech_bor</race>
+        <modExtensions>
+            <li Class="CombatExtended.LoadoutPropertiesExtension">
+                <primaryMagazineCount>1~3</primaryMagazineCount>
+                <forcedAmmoCategory>Sabot</forcedAmmoCategory>
+            </li>
+            <!--<li Class="CEMechs.ExtLoot">
+              <lootsDefs>
+                <li>Meth_Pills</li>
+              </lootsDefs>
+              <amount>10~15</amount>
+              <itemAm>1</itemAm>
+            </li>-->
+        </modExtensions>
+    </PawnKindDef>
+
+
+    <BodyPartDef>
+        <defName>MechanicalBoxBody</defName>
+        <label>Body</label>
+        <hitPoints>70</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <solid>true</solid>
+        <bleedRate>0</bleedRate>
+        <alive>false</alive>
+    </BodyPartDef>
+
+    <BodyPartDef>
+        <defName>MechanicalBoxHead</defName>
+        <label>Turret</label>
+        <hitPoints>35</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <solid>true</solid>
+        <bleedRate>0</bleedRate>
+        <alive>false</alive>
+        <tags>
+            <li>ManipulationLimbCore</li>
+        </tags>
+    </BodyPartDef>
+
+    <BodyPartDef>
+        <defName>Engine</defName>
+        <label>engine</label>
+        <hitPoints>20</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <solid>true</solid>
+        <alive>false</alive>
+        <bleedRate>0</bleedRate>
+        <tags>
+          <li>BloodPumpingSource</li>
+        </tags>
+    </BodyPartDef>
+
+    <BodyDef>
+        <defName>CE_Mech_borBox</defName>
+        <label>mechanical centipede</label>
+        <corePart>
+            <groups>
+                <li>CoveredByNaturalArmor</li>
+            </groups>
+            <height>Middle</height>
+            <depth>Outside</depth>
+            <def>MechanicalBoxBody</def>
+            <parts>
+                <li>
+                    <def>Engine</def>
+                    <depth>Inside</depth>
+                    <height>Middle</height>
+                    <coverage>0.15</coverage>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+                <li>
+                  <def>MechanicalBoxHead</def>
+                  <coverage>0.35</coverage>
+                  <height>Top</height>
+                  <groups>
+                    <li>HeadAttackTool</li>
+                    <li>CoveredByNaturalArmor</li>
+                  </groups>
+                  <parts>
+                    <li>
+                        <def>SightSensor</def>
+                        <customLabel>left sight sensor</customLabel>
+                        <coverage>0.25</coverage>
+                      </li>
+                      <li>
+                        <def>SightSensor</def>
+                        <customLabel>right sight sensor</customLabel>
+                        <coverage>0.25</coverage>
+                      </li>
+                      <li>
+                        <def>ArtificialBrain</def>
+                        <coverage>0.15</coverage>
+                        <depth>Inside</depth>
+                      </li>
+                  </parts>
+                </li>
+                <li>
+                    <def>MechanicalLeg</def>
+                    <height>Bottom</height>
+                    <coverage>0.05</coverage>
+                    <customLabel>front right leg</customLabel>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+                <li>
+                    <def>MechanicalLeg</def>
+                    <height>Bottom</height>
+                    <coverage>0.05</coverage>
+                    <customLabel>back right leg</customLabel>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+                <li>
+                    <def>MechanicalLeg</def>
+                    <height>Bottom</height>
+                    <coverage>0.05</coverage>
+                    <customLabel>>Middle right leg</customLabel>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+
+                <li>
+                    <def>MechanicalLeg</def>
+                    <height>Bottom</height>
+                    <coverage>0.05</coverage>
+                    <customLabel>front left leg</customLabel>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+                <li>
+                    <def>MechanicalLeg</def>
+                    <height>Bottom</height>
+                    <coverage>0.05</coverage>
+                    <customLabel>back left leg</customLabel>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+                <li>
+                    <def>MechanicalLeg</def>
+                    <height>Bottom</height>
+                    <coverage>0.05</coverage>
+                    <customLabel>Middle left leg</customLabel>
+                    <groups>
+                        <li>CoveredByNaturalArmor</li>
+                    </groups>
+                </li>
+            </parts>
+        </corePart>
+    </BodyDef>
+</Defs>

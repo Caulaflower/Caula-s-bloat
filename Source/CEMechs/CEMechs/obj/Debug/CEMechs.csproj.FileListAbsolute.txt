@@ -1,0 +1,12 @@
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Assemlies\CEMechs.dll
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Assemlies\CEMechs.pdb
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Source\CEMechs\CEMechs\obj\Debug\CEMechs.csprojAssemblyReference.cache
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Source\CEMechs\CEMechs\obj\Debug\CEMechs.dll
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Source\CEMechs\CEMechs\obj\Debug\CEMechs.pdb
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Assemblies\CEMechs.dll
+F:\Steam\steamapps\common\RimWorld\Mods\CE mechs\Assemblies\CEMechs.pdb
+F:\Steam\steamapps\common\RimWorld\Mods\CE Bloat Expanded\Assemblies\CEMechs.dll
+F:\Steam\steamapps\common\RimWorld\Mods\CE Bloat Expanded\Assemblies\CEMechs.pdb
+F:\Steam\steamapps\common\RimWorld\Mods\CE Bloat Expanded\Source\CEMechs\CEMechs\obj\Debug\CEMechs.csprojAssemblyReference.cache
+F:\Steam\steamapps\common\RimWorld\Mods\CE Bloat Expanded\Source\CEMechs\CEMechs\obj\Debug\CEMechs.dll
+F:\Steam\steamapps\common\RimWorld\Mods\CE Bloat Expanded\Source\CEMechs\CEMechs\obj\Debug\CEMechs.pdb
